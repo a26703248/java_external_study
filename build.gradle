@@ -5,6 +5,13 @@ plugins {
 group = 'blog.howardli'
 version = '1.0-SNAPSHOT'
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'blog.howardli.java_external_study.java_8_thread.DaemonThreadMain'
+    }
+}
+
+
 repositories {
     mavenCentral()
 }

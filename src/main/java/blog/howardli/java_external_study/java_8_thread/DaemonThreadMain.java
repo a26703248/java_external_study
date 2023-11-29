@@ -5,6 +5,23 @@ import java.util.concurrent.*;
 
 public class DaemonThreadMain {
     public static void main(String[] args) {
+
+    }
+
+    private static void scheduleApplication() {
+        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
+        executorService.scheduleAtFixedRate(() -> {
+            System.out.println("Running scheduled task...");
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.printf("Scheduled task finished at %s\n", System.currentTimeMillis());
+        }, 0, 1, TimeUnit.SECONDS);
+    }
+
+    private static void application() {
         // 建立 ExecutorService
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
